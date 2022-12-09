@@ -21,6 +21,7 @@ body{
 
 } 
 
+
 .navbar__container {
     display: flex;
     justify-content:space-between;
@@ -46,6 +47,7 @@ body{
     font-size:2rem;
 
 }
+
 .fa--gem{
     margin-right:0.5rem;
 
@@ -77,6 +79,35 @@ body{
     width:100%;
 
 }
+
+.navbar__cart{
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration: none;
+    padding:0 1rem;
+    height: 100%;
+}
+
+.navbar__cart:hover{
+    color: rgb(66, 66, 245);
+    transition:all 0.5s ease;
+}
+.navbar__fav{
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration: none;
+    padding:0 1rem;
+    height: 100%;
+}
+
+.navbar__fav:hover{
+    color:red;
+    transition:all 0.5s ease;
+}
 .button{
     display:flex;
     align-items:center;
@@ -93,15 +124,15 @@ body{
 }
 .button:hover{
  background:rgb(42, 42, 42);
- transition:all 0.3s ease;
+ transition:all 0.5s ease;
  color:#a8a8a8;
 }
 .navbar__links:hover{
     color:#000000;
-    transition:all 0.3s ease;
+    transition:all 0.5s ease;
 
 }
-@media screen and (max-width: 630px) { 
+@media screen and (max-width: 740px) { 
 .navbar__container{
     display:flex;
     justify-content: space-between;
@@ -132,7 +163,7 @@ body{
     opacity:1;
     transition:all 0.5s ease;
     z-index:99;
-    height: 50vh;
+    height: 63vh;
     font-size: 1.6rem;
 }
  #navbar__logo{
@@ -153,6 +184,7 @@ body{
     padding:2rem;
     width:100%;
     display:table;
+    
 }
 #mobile-menu{
     position:absolute;
@@ -168,7 +200,7 @@ body{
     justify-content: center;
     align-items:center;
     width: 80%;
-    height:80px;
+    height:77px;
     margin:0;
 }
 
