@@ -1,0 +1,525 @@
+
+<html>
+<head>
+  <title>cancer</title><!--Change This-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    body{
+      background-image: #f0f0f0;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      box-sizing: border-box;
+    }
+
+    .logo{
+      width:3.5%;
+      display:inline-flex;
+      position:fixed;
+      margin-top:8px;
+      margin-left:25px;
+      z-index: 2;
+    }
+
+    .logo:hover{
+      background: linear-gradient(transparent, transparent 0%, rgba(150,150,150,0.2) 50%, rgba(150,150,150,0.3));
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      border-radius: 5px;
+    }
+
+    .menu-bar{
+      background-color: rgba(0, 0, 0, 0.3);
+      border-bottom:solid #222 1px;
+      position: sticky;
+      top: 0;
+      margin-top: 0.01em;
+      text-align: center;
+      border-radius:7px;
+      z-index: 1;
+    }
+
+    .menu-bar ul{
+      display: inline-flex;
+      list-style: none;
+      color: #fff;
+    }
+
+    .menu-bar ul:before{
+      content: "";
+      display: block;
+      height: 20px;
+      position: absolute;
+      top: -20px;
+      width:120px;
+    }
+
+    .menu-bar ul a{
+    text-decoration: none;
+    color: #fff;
+    display:block;
+    font-size:101%;
+    }
+
+    .menu-bar ul li{
+    width: 5em;
+    font-size: 1.25em;
+    margin: 12px;
+    padding: 14px;
+    }
+
+    .active, .menu-bar ul li:hover{
+      background: linear-gradient(transparent, transparent 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1));
+      box-shadow: 0 0 5px rgba(0,0,0,0.5);
+      border-radius: 0.625em;
+    }
+
+    .sub-menu-1{
+      display: none;
+    }
+
+    .menu-bar ul li:hover .sub-menu-1{
+      backdrop-filter: blur(8px);
+      z-index: 3;
+      border:solid #888 2.5px;
+      border-radius:7px;
+      background-color:rgba(0, 0, 0, 0.2);
+      display: flex;
+      position: absolute;
+      margin-top: 30px;
+      margin-left: -35px;
+    }
+
+    .menu-bar ul li:hover .sub-menu-1 ul{
+      display: block;
+      margin: 10px;
+    }
+
+    .menu-bar ul li:hover .sub-menu-1 ul li{
+      width: 110px;
+      padding: 10px;
+      border:15px ;
+      border-color: #fff;
+      border-radius: 0.625em;
+      text-align: center;
+      font-size: 90%;
+    }
+
+    .menu-bar ul li:hover .sub-menu-1 ul li:last-child{
+      border-bottom: none
+    }
+
+    .shadow{
+      width:1422px;
+      height:630px;
+      box-shadow: inset 0px 0px 120px 15px rgba(0,0,0,0.8);
+      position: absolute;
+    }
+
+    .cancer-background{
+      display: block;
+      filter:brightness(55%);
+      top:0;
+      z-index: -2;
+      position: absolute;
+      user-select: none;
+    }
+
+    .welcome h1
+    {
+      text-align: center;
+      margin-top: 100px;
+      color: #fff;
+      font-size: 101px;
+      user-select: none;
+    }
+
+    .welcome p{
+      text-align: center;
+      margin-top: 35px;
+      color: #fff;
+      font-size: 40px;
+      user-select: none;
+    }
+
+    .info{
+      position:absolute; top:810px; left:45px;
+      text-align: left;
+      color: #000;
+      font-size: 40px;
+      user-select: none;
+    }
+
+    .info1{
+      position:relative ; top:400px;
+      text-align: center;
+      color: #000;
+      font-size: 20px;
+      margin-right:200px;
+      margin-left:400px;
+    }
+
+    .hr1{
+      color:#888;
+      width:1000px;
+      position: absolute;
+      right:20px;
+      top:150px;
+      border-style: inset;
+      border-radius: 7px;
+      border-width: 0.1px;
+      border-color: #222;
+    }
+
+    .info2{
+      position:relative ; top:620px;
+      text-align: center;
+      color: #000;
+      font-size: 20px;
+      margin-right:900px;
+      margin-left:100px;
+    }
+
+    .info3{
+      position:relative ; top:620px;
+      text-align: center;
+      color: #000;
+      font-size: 20px;
+      margin-right:200px;
+      margin-left:800px;
+      margin-top: 200px;
+    }
+
+    .info4{
+      position:relative ; top:820px;
+      text-align: center;
+      color: #000;
+      font-size: 20px;
+      margin-right:900px;
+      margin-left:100px;
+    }
+
+    .img-hover-zoom {
+      height: 100px;
+      overflow: hidden;
+    }
+
+    .img-hover-zoom img {
+      transition: transform .5s ease;
+    }
+
+    .img-hover-zoom:hover img {
+      transform: scale(1.02);
+    }
+
+    .hr2{
+      color:#888;
+      width:1000px;
+      position: absolute;
+      right:220px;
+      top:2700px;
+      border-style: inset;
+      border-radius: 7px;
+      border-width: 0.1px;
+      border-color: #222;
+    }
+
+    .media-title{
+      position:absolute; top:2800px; left:45px;
+      text-align: left;
+      color: #000;
+      font-size: 40px;
+      user-select: none;
+    }
+
+    .lift{
+      position:absolute; top:630px; left:600px;
+      text-align: center;
+      font-size: 60px;
+      background-color: #565656;
+      color: transparent;
+      text-shadow: 0px 2px 3px rgba(255,255,255,0.8);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      user-select: none;
+    }
+
+    .img-hover-zoom2 {
+      height: 100px;
+      overflow: hidden;
+    }
+
+    .img-hover-zoom2 img {
+      transition: transform .5s ease;
+    }
+
+    .img-hover-zoom2:hover img {
+      transform: scale(1.25);
+    }
+
+    .hr3{
+      color:#888;
+      width:1000px;
+      position: absolute;
+      right:220px;
+      top:4200px;
+      border-style: inset;
+      border-radius: 7px;
+      border-width: 0.1px;
+      border-color: #222;
+    }
+
+    .location-title{
+      position:absolute; top:4300px; left:45px;
+      text-align: left;
+      color: #000;
+      font-size: 40px;
+      user-select: none;
+    }
+
+    .location-info{
+      position:relative ; top:1980px; left:35px;
+      text-align: center;
+      color: #000;
+      font-size: 30px;
+    }
+
+
+    .topnav {
+  overflow: hidden;
+  background-color:#4f8b96d4;
+  color:#f3f3f3;
+}
+
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #191970;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  float: left;
+  width: 10.10%;
+
+}
+
+
+
+/* Change color on hover   "//alshret done " */
+.topnav a:hover {
+  background-color:#4682B4;
+  color: black;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+
+  <div class="topnav">
+
+
+    <a  href=" file:///C:/Users/Motaz/Desktop/project%20finaly/project%20finaly/project/Gastrointestinal%20diseases.html">Gastrointestinal diseases</a>
+  
+  
+  
+     <a href="file:///C:/Users/Motaz/Desktop/project%20finaly/project%20finaly/cood.html"> general symptoms of diseases </a>
+  
+     <a  href="file:///C:/Users/Motaz/Desktop/project%20finaly/project%20finaly/page3.html">Vaccines</a>
+  
+     <a  href="file:///C:/Users/Motaz/Desktop/project%20finaly/project%20finaly/page4.html">Medical advice</a>
+  
+     <a class="menu1" href="file:///C:/Users/Motaz/Desktop/project%20finaly/project%20finaly/projectw3.html#" style="float:right"> <img src="home1" width="30pt"height="30pt"></a>
+  
+      <a  href="file:///C:/Users/Motaz/Desktop/project%20finaly/project%20finaly/project/HIV.html"> HIV  </a>
+  
+     <a  href="file:///C:/Users/Motaz/Desktop/project%20finaly/project%20finaly/project/muscle%20atrophy.html">muscle atrophy</a>
+  
+  
+     <a  href="file:///C:/Users/Motaz/Desktop/project%20finaly/project%20finaly/project/Cirrhosis.html">Cirrhosis</a>
+  
+     <a  href="file:///C:/Users/Motaz/Desktop/project%20finaly/project%20finaly/project/respiratory%20system%20diseases.html"> respiratory system diseases  </a>
+  
+  
+     <a  href="file:///C:/Users/Motaz/Desktop/project%20finaly/project%20finaly/project/cancer.html">Cancer</a>
+  
+   <a  href="file:///C:/Users/Motaz/Desktop/project%20finaly/project%20finaly/project/brain%20diseases.html">brain diseases</a>
+  
+  
+     </div>
+  
+ <img class="logo" src="hospital.jpg">
+
+  <div class="menu-bar">
+    <ul>
+
+    <li><a href="Gastrointestinal diseases .html">Gastrointestinal diseases</a>
+    <div class="sub-menu-1">
+      <ul>
+
+      </ul>
+    </div>
+    </li>
+
+    <li><a href="cancer.html">cancer</a>
+      <div class="sub-menu-1">
+        <ul>
+
+        </ul>
+      </div>
+    </li>
+
+    <li><a href="respiratory system diseases.html">respiratory system diseases</a>
+      <div class="sub-menu-1">
+        <ul>
+
+
+        </ul>
+      </div>
+    </li>
+
+
+
+    <li><a href="Cirrhosis.html">Cirrhosis</a><div class="sub-menu-1">
+      <ul>
+
+      </ul>
+    </div>
+  </li>
+
+    <li><a href="muscle atrophy.html">muscle atrophy</a><div class="sub-menu-1">
+      <ul>
+      </ul>
+    </div>
+  </li>
+
+    <li><a href="brain diseases.html">brain diseases</a><div class="sub-menu-1">
+      <ul>
+      </ul>
+    </div>
+  </li>
+
+ <li><a href="HIV.html">HIV</a><div class="sub-menu-1">
+     <ul>
+
+     </ul>
+   </div>
+</li>
+
+  </ul>
+</div>
+
+<div id="about8" class="lift">
+  <h1>information</h1>
+</div>
+
+<div class="welcome">
+    <h1>Cirrhosis and Your Liver</h1><!--Change This-->
+    <p>about Cirrhosis and Your Liver<p><!--Change This-->
+</div>
+
+<div class="info">
+    <p>Cirrhosis and Your Liver</p><!--Change This-->
+</div>
+
+<div class="info1"><!--Change This-->
+    <p>If your doctor tells you that you have cirrhosis, it means you have a condition that causes scar tissue to gradually replace your healthy liver cells. It usually happens over a long period of time because of infection or alcohol addiction. Most of the time, you can't fix the damage to your liver, but if you catch it early, there are treatments that can keep problems in check.
+
+Your liver is an organ that's about the size of a football with an important job. It filters toxins from your blood, makes enzymes that help you digest food, stores sugar and nutrients, and helps you fight infections.</p>
+    <hr class="hr1">
+    <br>
+</div>
+
+<div class="info2"><!--Change This-->
+  <p>Normally, human cells grow and multiply (through a process called cell division) to form new cells as the body needs them.<br><br>
+When cells grow old or become damaged, they die, and new cells take their place.<br><br>
+
+Sometimes this orderly process breaks down, and abnormal or damaged cells grow and multiply when they shouldn�t.<br><br>
+   </p>&nbsp;
+
+
+</div><!--Change This-->
+<div class="img-hover-zoom">
+<img src="c1.jpg" alt="Wadi Rum" width="600" height="338" style="position:absolute; left:650px ; top:1100px; box-shadow: 0px 0px 40px;cursor:pointer;border-radius:7px;">
+</div>
+
+
+<div class="info3"><!--Change This-->
+  <p>These cells may form tumors, which are lumps of tissue. Tumors can be cancerous or not cancerous (benign).<br><br>
+
+Cancerous tumors spread into, or invade, nearby tissues and can travel to distant places in the body to form new tumors (a process called metastasis).<br><br>
+ </p>&nbsp;
+
+
+</div><!--Change This-->
+<div class="img-hover-zoom">
+<img src="c2.jpg" alt="Wadi Rum" width="600" height="338" style="position:absolute; right:750px ; top:1650px; box-shadow: 0px 0px 40px; cursor:pointer;border-radius:7px;">
+</div>
+
+
+<div class="info4"><!--Change This-->
+  <p>Cancerous tumors may also be called malignant tumors. Many cancers form solid tumors, but cancers of the blood, such as leukemias, generally do not.<br><br>
+
+ </p>&nbsp;
+</div>
+
+<div class="img-hover-zoom"><!--Change This-->
+<img src="c3.jpg" alt="Wadi Rum" width="600" height="338" style="position:absolute; left:700px ; top:2200px; box-shadow: 0px 0px 40px;cursor:pointer;border-radius:7px;">
+</div>
+
+<hr class="hr2">
+
+<div id="media8" class="media-title">
+  <p>Images</p>
+</div>
+
+
+<!--MEDIA STARTS HERE-->
+<div class="media">
+
+  <div class="img-hover-zoom2"><!--Change This-->
+    <img src="c4.jpg" alt="Wadi Rum" width="350" height="285" style="position:absolute; left:75px ; top:2950px; box-shadow: 0px 0px 40px;cursor:pointer;border-radius:7px;">
+    </div>
+
+  <div class="img-hover-zoom2"><!--Change This-->
+    <img src="c5.jpg" alt="Wadi Rum" width="350" height="285" style="position:absolute; left:550px ; top:2950px; box-shadow: 0px 0px 40px;cursor:pointer;border-radius:7px;">
+    </div>
+
+  <div class="img-hover-zoom2"><!--Change This-->
+    <img src="c6.jpg" alt="Wadi Rum" width="350" height="285" style="position:absolute; left:1025px ; top:2950px; box-shadow: 0px 0px 40px;cursor:pointer;border-radius:7px;">
+    </div>
+
+  <div class="img-hover-zoom2"><!--Change This-->
+     <img src="c7.jpg" alt="Wadi Rum" width="350" height="285" style="position:absolute; left:1025px ; top:3350px; box-shadow: 0px 0px 40px;cursor:pointer;border-radius:7px;">
+      </div>
+
+  <div class="img-hover-zoom2"><!--Change This-->
+    <img src="c8.jpg" alt="Wadi Rum" width="350" height="285" style="position:absolute; left:550px ; top:3350px; box-shadow: 0px 0px 40px;cursor:pointer;border-radius:7px;">
+    </div>
+
+  <div class="img-hover-zoom2"><!--Change This-->
+    <img src="c9.jpg" alt="Wadi Rum" width="350" height="285" style="position:absolute; left:75px ; top:3350px; box-shadow: 0px 0px 40px;cursor:pointer;border-radius:7px;">
+
+    </div><!--Change This-->
+      <video width="550" style="position:absolute; left:450px ; top:3750px; box-shadow: 0px 0px 40px;cursor:pointer;border-radius:7px;" controls muted>
+      <source src="">
+      </video>
+      </div>
+</div>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>
